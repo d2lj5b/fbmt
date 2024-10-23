@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM content loaded');
     // Load product data
     fetch('data/products.json')
         .then(response => response.json())
         .then(data => {
+            console.log('Product data loaded:', data);
             const dropdownContainer = document.getElementById('product-dropdown-container');
             const main = document.querySelector('main');
             const homeSection = document.getElementById('home');
@@ -11,11 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Create and populate dropdown menu
             const dropdown = createProductDropdown(data.products);
             dropdownContainer.appendChild(dropdown);
+            console.log('Dropdown created and appended');
 
             // Create product sections
             data.products.forEach(product => {
                 const section = createProductSection(product);
-                homeSection.insertAdjacentElement('afterend', section);
+                main.insertBefore(section, contactSection);
+                console.log(`Product section created for ${product.name}`);
             });
 
             // Initialize smooth scrolling and other features
