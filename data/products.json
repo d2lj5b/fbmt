@@ -1,0 +1,23 @@
+{
+  "company_name": "Frank Bailey Machine Tools",
+  "products": [
+    {
+      "id": "revolving_centres",
+      "name": "Revolving Centres",
+      "description": "Our range includes High Speed CNC, Extended Point CNC, Slim Line CNC, Heavy Duty, and Standard Revolving Centres. Available in sizes 2MT, 3MT, 4MT, 5MT, 6MT, and 7MT.",
+      "imageUrl": "images/revolving_centres.jpg"
+    },
+    {
+      "id": "tube_centres",
+      "name": "Tube Centres",
+      "description": "Available in Blunt Type (35-125mm, 75-150mm, 100-200mm, 100-230mm) and Pointed Type (0-3\", 0-4\", 0-5\"). Tapers available: 3MT, 4MT, 5MT, 6MT.",
+      "imageUrl": "images/tube_centres.jpg"
+    },
+    {
+      "id": "drill_sleeves_and_sockets",
+      "name": "Drill Sleeves and Extension Sockets",
+      "description": "Extension Sleeves range from 1MT x 2MT to 6MT x 7MT. Drill Sleeves range from 7MT X 6MT to 2MT x 1MT. All products are hardened and ground.",
+      "imageUrl": "images/drill_sleeves_and_sockets.jpg"
+    }
+  ]
+}
