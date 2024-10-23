@@ -15,14 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Product data loaded:', data);
 
             if (navList) {
-                console.log('nav-list found, populating dropdown');
-                const dropdownContent = navList.querySelector('.dropdown-content');
-                if (dropdownContent) {
-                    createProductDropdown(data.products);
-                    console.log('Dropdown populated');
-                } else {
-                    console.error('Dropdown content container not found');
-                }
+                console.log('nav-list found, creating dropdown');
+                createOrUpdateProductDropdown(navList, data.products);
             } else {
                 console.error('nav-list not found');
                 // Fallback: Try to find any <ul> in the <nav>
@@ -31,14 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const ul = nav.querySelector('ul');
                     if (ul) {
                         console.log('Fallback: <ul> found in <nav>, using this instead');
-                        // Use this <ul> to insert the dropdown
-                        const dropdownContent = ul.querySelector('.dropdown-content');
-                        if (dropdownContent) {
-                            createProductDropdown(data.products);
-                            console.log('Dropdown populated');
-                        } else {
-                            console.error('Dropdown content container not found');
-                        }
+                        createOrUpdateProductDropdown(ul, data.products);
                     } else {
                         console.error('No <ul> found in <nav>');
                     }
@@ -66,15 +53,45 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error loading product data:', error));
 });
 
-function createProductDropdown(products) {
-    const dropdownContent = document.querySelector('.dropdown-content');
-    
+function createOrUpdateProductDropdown(navList, products) {
+    let dropdownLi = navList.querySelector('.dropdown');
+    if (!dropdownLi) {
+        dropdownLi = document.createElement('li');
+        dropdownLi.className = 'dropdown';
+        const dropdownBtn = document.createElement('a');
+        dropdownBtn.href = '#';
+        dropdownBtn.className = 'dropbtn';
+        dropdownBtn.textContent = 'Our Products';
+        dropdownLi.appendChild(dropdownBtn);
+        
+        // Insert the dropdown after the "Home" link
+        const firstLi = navList.querySelector('li');
+        if (firstLi) {
+            navList.insertBefore(dropdownLi, firstLi.nextSibling);
+        } else {
+            navList.appendChild(dropdownLi);
+        }
+    }
+
+    let dropdownContent = dropdownLi.querySelector('.dropdown-content');
+    if (!dropdownContent) {
+        dropdownContent = document.createElement('div');
+        dropdownContent.className = 'dropdown-content';
+        dropdownLi.appendChild(dropdownContent);
+    }
+
+    // Clear existing content
+    dropdownContent.innerHTML = '';
+
+    // Add product links
     products.forEach(product => {
         const link = document.createElement('a');
         link.href = `#${product.id}`;
         link.textContent = product.name;
         dropdownContent.appendChild(link);
     });
+
+    console.log('Dropdown created/updated');
 }
 
 function createProductSection(product) {
