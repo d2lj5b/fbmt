@@ -139,12 +139,13 @@ footer {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .text-content {
     flex: 0 0 50%;
     padding-right: 2rem;
+    text-align: left;
 }
 
 .image-content {
@@ -168,6 +169,7 @@ footer {
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: #1d1d1f;
+    text-align: left;
 }
 
 .subtitle {
@@ -175,6 +177,7 @@ footer {
     font-weight: 400;
     color: #666;
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 /* Update main copy styles */
@@ -183,6 +186,7 @@ footer {
     line-height: 1.6;
     color: #333;
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 /* Update CTA container styles */
@@ -323,12 +327,13 @@ nav {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .text-content {
     flex: 0 0 50%;
     padding-right: 2rem;
+    text-align: left;
 }
 
 .image-content {
@@ -352,6 +357,7 @@ nav {
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: #1d1d1f;
+    text-align: left;
 }
 
 .subtitle {
@@ -359,6 +365,7 @@ nav {
     font-weight: 400;
     color: #666;
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 /* Modify the existing .main-copy styles */
@@ -367,6 +374,7 @@ nav {
     line-height: 1.6;
     color: #333;
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 /* Modify the existing .cta-container styles */
@@ -504,4 +512,3 @@ nav {
         align-items: center;
     }
 }
-
