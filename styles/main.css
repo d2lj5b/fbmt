@@ -14,12 +14,11 @@ body {
 
 /* Header and navigation */
 header {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     z-index: 1000;
     padding: 1rem 2rem;
+    background: transparent; /* Remove the background color */
 }
 
 nav {
@@ -46,7 +45,7 @@ nav {
 
 #nav-list a, .dropbtn {
     text-decoration: none;
-    color: #333;
+    color: white; /* Change text color to white for better visibility on the hero image */
     font-weight: bold;
     padding: 10px 15px;
     display: inline-block;
@@ -691,3 +690,4 @@ nav {
         font-size: 1rem;
     }
 }
+
