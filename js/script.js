@@ -28,6 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error loading product data:', error));
 });
 
+function createProductDropdown(products) {
+    const dropdown = document.createElement('select');
+    dropdown.id = 'product-dropdown';
+
+    const defaultOption = document.createElement('option');
+    defaultOption.value = "";
+    defaultOption.textContent = "Our Products";
+    dropdown.appendChild(defaultOption);
+
+    products.forEach(product => {
+        const option = document.createElement('option');
+        option.value = product.id;
+        option.textContent = product.name;
+        dropdown.appendChild(option);
+    });
+
+    return dropdown;
+}
+
 function createProductSection(product) {
     const section = document.createElement('section');
     section.id = product.id;
@@ -35,7 +54,7 @@ function createProductSection(product) {
     section.innerHTML = `
         <div class="content">
             <h2>${product.name}</h2>
-            <img src="${product.imageUrl}" alt="${product.name}">
+            <img src="${product.imageUrl}" alt="${product.name}" style="max-width: 100%; height: auto;">
             <p>${product.description}</p>
         </div>
     `;
@@ -43,6 +62,7 @@ function createProductSection(product) {
 }
 
 function initFeatures() {
+    console.log('Initializing features');
     // Smooth scrolling for all navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -58,9 +78,14 @@ function initFeatures() {
     dropdown.addEventListener('change', (event) => {
         const selectedId = event.target.value;
         if (selectedId) {
-            document.getElementById(selectedId).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const selectedSection = document.getElementById(selectedId);
+            if (selectedSection) {
+                selectedSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                console.error(`Section with id ${selectedId} not found`);
+            }
         }
     });
 }
