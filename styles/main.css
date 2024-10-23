@@ -189,3 +189,76 @@ footer {
         text-align: center;
     }
 }
+
+/* Navigation styles */
+nav {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+}
+
+#nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#nav-list li {
+    margin: 0 15px;
+    position: relative;
+}
+
+#nav-list a, .dropbtn {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+/* Dropdown styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Ensure the dropdown button looks the same as other nav items */
+.dropbtn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Hide the dropdown by default */
+.dropdown-content {
+    display: none;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
