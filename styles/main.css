@@ -612,7 +612,7 @@ nav {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: white; /* This sets the default text color for all content in the hero */
 }
 
 .hero::before {
@@ -630,8 +630,9 @@ nav {
     max-width: 800px;
     padding: 2rem;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    border-radius: 10px;
+    /* Remove the background color if you don't want the semi-transparent box */
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* border-radius: 10px; */
 }
 
 .main-title {
@@ -639,6 +640,7 @@ nav {
     font-weight: 700; /* Increased font weight */
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Stronger shadow */
+    color: white; /* Explicitly set colors for individual text elements if needed */
 }
 
 .subtitle {
@@ -646,6 +648,7 @@ nav {
     font-weight: 500; /* Increased font weight */
     margin-bottom: 2rem;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Stronger shadow */
+    color: white; /* Explicitly set colors for individual text elements if needed */
 }
 
 .main-copy {
@@ -654,6 +657,7 @@ nav {
     margin-bottom: 1.5rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Stronger shadow */
     font-weight: 400; /* Slightly increased font weight */
+    color: white; /* Explicitly set colors for individual text elements if needed */
 }
 
 .cta-container {
