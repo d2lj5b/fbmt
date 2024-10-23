@@ -19,7 +19,7 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    padding: 1rem 2rem; /* Add padding to the header */
+    padding: 1rem 2rem;
 }
 
 nav {
@@ -32,16 +32,16 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: flex-start; /* Align items to the start */
+    justify-content: flex-start;
     align-items: center;
 }
 
 #nav-list li {
-    margin-right: 2rem; /* Increase spacing between menu items */
+    margin-right: 2rem;
 }
 
 #nav-list li:last-child {
-    margin-right: 0; /* Remove margin from the last item */
+    margin-right: 0;
 }
 
 #nav-list a, .dropbtn {
@@ -57,9 +57,9 @@ nav {
     color: #0071e3;
 }
 
-/* Push "Our Products" and "Contact" to the right */
+/* Remove the auto margin from "Our Products" */
 #nav-list li:nth-child(2) {
-    margin-left: auto;
+    margin-left: 0;
 }
 
 /* Dropdown styles */
@@ -71,7 +71,7 @@ nav {
     display: none;
     position: absolute;
     background-color: #fff;
-    min-width: 160px;
+    min-width: 200px; /* Increased width for better readability */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     top: 100%;
@@ -104,10 +104,6 @@ nav {
     #nav-list li {
         margin-right: 0;
         margin-bottom: 1rem;
-    }
-
-    #nav-list li:nth-child(2) {
-        margin-left: 0;
     }
 
     .dropdown-content {
