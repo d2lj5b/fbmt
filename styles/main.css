@@ -427,18 +427,9 @@ nav {
 }
 
 #contact .content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-}
-
-#contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-#contact p {
-    margin-bottom: 1rem;
 }
 
 .contact-info-container {
@@ -455,17 +446,17 @@ nav {
     flex: 0 0 50%;
 }
 
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     margin-top: 2rem;
-    margin-bottom: 2rem;
 }
 
 .contact-item {
     margin-bottom: 1.5rem;
-    text-align: left;
 }
 
 .contact-item h3 {
@@ -505,11 +496,17 @@ nav {
 }
 
 @media (max-width: 768px) {
-    #contact h2, #contact > p, .contact-item, .cta-container {
+    #contact h2, .contact-item {
         text-align: center;
     }
 
     .contact-info {
         align-items: center;
     }
+}
+
+/* Temporary debug styles */
+#contact {
+    border: 5px solid red !important;
+    min-height: 300px !important;
 }
