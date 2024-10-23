@@ -512,3 +512,29 @@ nav {
         align-items: center;
     }
 }
+
+/* Update responsive styles */
+@media (max-width: 992px) {
+    #home .content {
+        flex-direction: column-reverse; /* Image on top, text below on smaller screens */
+    }
+
+    .text-content, .image-content {
+        flex: 0 0 100%;
+        padding-right: 0;
+    }
+
+    .image-content {
+        margin-bottom: 2rem;
+    }
+
+    .home-image {
+        max-width: 80%; /* Slightly smaller on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .home-image {
+        max-width: 100%; /* Full width on small screens */
+    }
+}
