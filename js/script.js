@@ -100,15 +100,20 @@ function createOrUpdateProductDropdown(navList, products) {
     // Clear existing content
     dropdownContent.innerHTML = '';
 
-    // Add product links
+    // Add product links using the provided createProductDropdown function
+    createProductDropdown(products);
+
+    console.log('Dropdown created/updated');
+}
+
+function createProductDropdown(products) {
+    const dropdownContent = document.querySelector('.dropdown-content');
     products.forEach(product => {
         const link = document.createElement('a');
         link.href = `#${product.id}`;
         link.textContent = product.name;
         dropdownContent.appendChild(link);
     });
-
-    console.log('Dropdown created/updated');
 }
 
 function createProductSection(product) {
