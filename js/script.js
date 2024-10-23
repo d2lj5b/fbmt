@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM content loaded');
 
+    // Check for contact section immediately
+    const contactSection = document.getElementById('contact');
+    console.log('Contact section on load:', contactSection);
+
     // Debug: Log all sections
     const allSections = document.querySelectorAll('section');
     console.log('All sections:', allSections);
 
     // Check if contact section is present
-    const contactSection = document.getElementById('contact');
     if (contactSection) {
         console.log('Contact section found:', contactSection);
     } else {
@@ -57,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 console.log(`Product section created for ${product.name}`);
             });
+
+            // Log contact section again after products are added
+            console.log('Contact section after products:', document.getElementById('contact'));
 
             // Initialize smooth scrolling and other features
             initFeatures();
