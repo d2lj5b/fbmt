@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM content loaded');
 
+    // Debug: Log all sections
+    const allSections = document.querySelectorAll('section');
+    console.log('All sections:', allSections);
+
+    // Check if contact section is present
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        console.log('Contact section found:', contactSection);
+    } else {
+        console.error('Contact section not found');
+    }
+
     // Debug: Log all elements with IDs
     console.log('All elements with IDs:', document.querySelectorAll('[id]'));
 
@@ -36,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Create product sections
             const main = document.querySelector('main');
-            const contactSection = document.getElementById('contact');
             data.products.forEach(product => {
                 const section = createProductSection(product);
                 if (contactSection) {
@@ -98,11 +109,24 @@ function createProductSection(product) {
     const section = document.createElement('section');
     section.id = product.id;
     section.className = 'full-screen';
+    
+    let additionalInfo = '';
+    
+    // Add additional information based on product type
+    if (product.types) {
+        additionalInfo += `<h3>Types:</h3><ul>${product.types.map(type => `<li>${type}</li>`).join('')}</ul>`;
+    }
+    if (product.sizes) {
+        additionalInfo += `<h3>Sizes:</h3><ul>${product.sizes.map(size => `<li>${size}</li>`).join('')}</ul>`;
+    }
+    // Add more conditions for other product-specific information
+    
     section.innerHTML = `
         <div class="content">
             <h2>${product.name}</h2>
             <img src="${product.imageUrl}" alt="${product.name}" style="max-width: 100%; height: auto;">
             <p>${product.description}</p>
+            ${additionalInfo}
         </div>
     `;
     return section;
