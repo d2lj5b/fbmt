@@ -15,23 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Product data loaded:', data);
 
             if (navList) {
-                console.log('nav-list found, creating dropdown');
-                // Create and populate dropdown menu
-                const dropdown = createProductDropdown(data.products);
-                const dropdownListItem = document.createElement('li');
-                dropdownListItem.appendChild(dropdown);
-                
-                // Insert dropdown after the "Home" link and before the "Contact" link
-                const listItems = navList.querySelectorAll('li');
-                console.log('List items in nav-list:', listItems);
-
-                if (listItems.length >= 2) {
-                    navList.insertBefore(dropdownListItem, listItems[listItems.length - 1]);
-                    console.log('Dropdown inserted into nav-list');
+                console.log('nav-list found, populating dropdown');
+                const dropdownContent = navList.querySelector('.dropdown-content');
+                if (dropdownContent) {
+                    createProductDropdown(data.products);
+                    console.log('Dropdown populated');
                 } else {
-                    console.error('Not enough list items in nav-list');
-                    navList.appendChild(dropdownListItem);
-                    console.log('Dropdown appended to nav-list');
+                    console.error('Dropdown content container not found');
                 }
             } else {
                 console.error('nav-list not found');
@@ -42,11 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (ul) {
                         console.log('Fallback: <ul> found in <nav>, using this instead');
                         // Use this <ul> to insert the dropdown
-                        const dropdown = createProductDropdown(data.products);
-                        const dropdownListItem = document.createElement('li');
-                        dropdownListItem.appendChild(dropdown);
-                        ul.insertBefore(dropdownListItem, ul.lastElementChild);
-                        console.log('Dropdown inserted into fallback <ul>');
+                        const dropdownContent = ul.querySelector('.dropdown-content');
+                        if (dropdownContent) {
+                            createProductDropdown(data.products);
+                            console.log('Dropdown populated');
+                        } else {
+                            console.error('Dropdown content container not found');
+                        }
                     } else {
                         console.error('No <ul> found in <nav>');
                     }
@@ -75,22 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function createProductDropdown(products) {
-    const dropdown = document.createElement('select');
-    dropdown.id = 'product-dropdown';
-
-    const defaultOption = document.createElement('option');
-    defaultOption.value = "";
-    defaultOption.textContent = "Our Products";
-    dropdown.appendChild(defaultOption);
-
+    const dropdownContent = document.querySelector('.dropdown-content');
+    
     products.forEach(product => {
-        const option = document.createElement('option');
-        option.value = product.id;
-        option.textContent = product.name;
-        dropdown.appendChild(option);
+        const link = document.createElement('a');
+        link.href = `#${product.id}`;
+        link.textContent = product.name;
+        dropdownContent.appendChild(link);
     });
-
-    return dropdown;
 }
 
 function createProductSection(product) {
@@ -109,29 +93,17 @@ function createProductSection(product) {
 
 function initFeatures() {
     console.log('Initializing features');
-    // Smooth scrolling for all navigation links
+    // Smooth scrolling for all navigation links, including dropdown links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Handle dropdown selection with smooth scrolling
-    const dropdown = document.getElementById('product-dropdown');
-    dropdown.addEventListener('change', (event) => {
-        const selectedId = event.target.value;
-        if (selectedId) {
-            const selectedSection = document.getElementById(selectedId);
-            if (selectedSection) {
-                selectedSection.scrollIntoView({
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
-            } else {
-                console.error(`Section with id ${selectedId} not found`);
             }
-        }
+        });
     });
 }
