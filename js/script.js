@@ -10,15 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const homeSection = document.getElementById('home');
             const contactSection = document.getElementById('contact');
 
-            // Create and populate dropdown menu
-            const dropdown = createProductDropdown(data.products);
-            dropdownContainer.appendChild(dropdown);
-            console.log('Dropdown created and appended');
+            if (dropdownContainer) {
+                // Create and populate dropdown menu
+                const dropdown = createProductDropdown(data.products);
+                dropdownContainer.appendChild(dropdown);
+                console.log('Dropdown created and appended');
+            } else {
+                console.error('Dropdown container not found');
+            }
 
             // Create product sections
             data.products.forEach(product => {
                 const section = createProductSection(product);
-                main.insertBefore(section, contactSection);
+                if (contactSection) {
+                    main.insertBefore(section, contactSection);
+                } else {
+                    main.appendChild(section);
+                }
                 console.log(`Product section created for ${product.name}`);
             });
 
