@@ -1,25 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM content loaded');
+
+    // Debug: Log all elements with IDs
+    console.log('All elements with IDs:', document.querySelectorAll('[id]'));
+
+    // Debug: Log the nav-list element
+    const navList = document.getElementById('nav-list');
+    console.log('nav-list element:', navList);
+
     // Load product data
     fetch('data/products.json')
         .then(response => response.json())
         .then(data => {
             console.log('Product data loaded:', data);
-            const dropdownContainer = document.getElementById('product-dropdown-container');
-            const main = document.querySelector('main');
-            const homeSection = document.getElementById('home');
-            const contactSection = document.getElementById('contact');
 
-            if (dropdownContainer) {
+            if (navList) {
+                console.log('nav-list found, creating dropdown');
                 // Create and populate dropdown menu
                 const dropdown = createProductDropdown(data.products);
-                dropdownContainer.appendChild(dropdown);
-                console.log('Dropdown created and appended');
+                const dropdownListItem = document.createElement('li');
+                dropdownListItem.appendChild(dropdown);
+                
+                // Insert dropdown after the "Home" link and before the "Contact" link
+                const listItems = navList.querySelectorAll('li');
+                console.log('List items in nav-list:', listItems);
+
+                if (listItems.length >= 2) {
+                    navList.insertBefore(dropdownListItem, listItems[listItems.length - 1]);
+                    console.log('Dropdown inserted into nav-list');
+                } else {
+                    console.error('Not enough list items in nav-list');
+                    navList.appendChild(dropdownListItem);
+                    console.log('Dropdown appended to nav-list');
+                }
             } else {
-                console.error('Dropdown container not found');
+                console.error('nav-list not found');
+                // Fallback: Try to find any <ul> in the <nav>
+                const nav = document.querySelector('nav');
+                if (nav) {
+                    const ul = nav.querySelector('ul');
+                    if (ul) {
+                        console.log('Fallback: <ul> found in <nav>, using this instead');
+                        // Use this <ul> to insert the dropdown
+                        const dropdown = createProductDropdown(data.products);
+                        const dropdownListItem = document.createElement('li');
+                        dropdownListItem.appendChild(dropdown);
+                        ul.insertBefore(dropdownListItem, ul.lastElementChild);
+                        console.log('Dropdown inserted into fallback <ul>');
+                    } else {
+                        console.error('No <ul> found in <nav>');
+                    }
+                } else {
+                    console.error('No <nav> element found');
+                }
             }
 
             // Create product sections
+            const main = document.querySelector('main');
+            const contactSection = document.getElementById('contact');
             data.products.forEach(product => {
                 const section = createProductSection(product);
                 if (contactSection) {
