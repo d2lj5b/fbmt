@@ -5,19 +5,115 @@
       "id": "revolving_centres",
       "name": "Revolving Centres",
       "description": "Our range includes High Speed CNC, Extended Point CNC, Slim Line CNC, Heavy Duty, and Standard Revolving Centres. Available in sizes 2MT, 3MT, 4MT, 5MT, 6MT, and 7MT.",
-      "imageUrl": "http://fbmt.co.uk/ESW/Images/LC.jpg?9508"
+      "types": [
+        "High Speed CNC Revolving Centres",
+        "Extended Point CNC Revolving Centres",
+        "Slim Line CNC Revolving Centres",
+        "Heavy Duty Revolving Centres",
+        "Standard Revolving Centres"
+      ],
+      "sizes": [
+        "2MT", "3MT", "4MT", "5MT", "6MT", "7MT"
+      ],
+      "imageUrl": "images/revolving_centres.jpg"
     },
     {
       "id": "tube_centres",
       "name": "Tube Centres",
       "description": "Available in Blunt Type (35-125mm, 75-150mm, 100-200mm, 100-230mm) and Pointed Type (0-3\", 0-4\", 0-5\"). Tapers available: 3MT, 4MT, 5MT, 6MT.",
-      "imageUrl": "http://fbmt.co.uk/ESW/Images/Tube_Centres_008.JPG?1999"
+      "variants": [
+        {
+          "type": "Blunt Type",
+          "sizes": ["35-125mm", "75-150mm", "100-200mm", "100-230mm"]
+        },
+        {
+          "type": "Pointed Type",
+          "sizes": ["0-3\"", "0-4\"", "0-5\""]
+        }
+      ],
+      "tapers_available": ["3MT", "4MT", "5MT", "6MT"],
+      "imageUrl": "images/tube_centre_pointed.jpg"
     },
     {
       "id": "drill_sleeves_and_sockets",
       "name": "Drill Sleeves and Extension Sockets",
       "description": "Extension Sleeves range from 1MT x 2MT to 6MT x 7MT. Drill Sleeves range from 7MT X 6MT to 2MT x 1MT. All products are hardened and ground.",
-      "imageUrl": "http://fbmt.co.uk/ESW/Images/extension-sleeve.jpg?xcache=5110"
+      "specifications": {
+        "extension_sleeves": {
+          "name": "Extension Sleeves",
+          "size_range": "1MT x 2MT through to 6MT x 7MT"
+        },
+        "drill_sleeves": {
+          "name": "Drill Sleeves",
+          "size_range": "7MT X 6MT through to 2MT x 1MT"
+        },
+        "product_features": [
+          "All products are hardened and ground"
+        ]
+      },
+      "imageUrl": "images/drill_sleeve.jpg"
+    },
+    {
+      "id": "lathe_chucks",
+      "name": "Lathe Chucks",
+      "description": "Size range: 65mm up to 630mm. Available in 3 jaw self centring, 4 jaw self centring, 3 jaw independent, and 4 jaw independent types. Mounting options include plain back, front mounting, and camlock (D1). Accessories available: hard jaws, soft jaws, and chuck spares.",
+      "size_range": "65mm up to 630mm",
+      "types": [
+        "3 jaw self centring",
+        "4 jaw self centring",
+        "3 jaw independent",
+        "4 jaw independent"
+      ],
+      "mounting_options": [
+        "plain back",
+        "front mounting",
+        "camlock (D1)"
+      ],
+      "accessories": [
+        "hard jaws",
+        "soft jaws",
+        "chuck spares"
+      ],
+      "imageUrl": "images/lathe_chucks.jpg"
+    },
+    {
+      "id": "back_end_tooling",
+      "name": "Back End Tooling",
+      "description": "Available in tapers BT 50, BT 40, ISO 50, ISO 40, DIN 50, DIN 40, R 8, and MT. Holder types include Collect Chucks, Extended Collet Chucks, Side Locks, Stub Arbors, MT Adaptors, Boring Heads, and Autolock chucks.",
+      "tapers_available": [
+        "BT 50", "BT 40", "ISO 50", "ISO 40", "DIN 50", "DIN 40", "R 8", "MT"
+      ],
+      "holder_types": [
+        "Collect Chucks",
+        "Extended Collet Chucks",
+        "Side Locks",
+        "Stub Arbors",
+        "MT Adaptors",
+        "Boring Heads",
+        "Autolock chucks"
+      ],
+      "imageUrl": "images/back_end_tooling.jpg"
+    },
+    {
+      "id": "taper_shank_drills",
+      "name": "Taper Shank Drills",
+      "description": "Available in sizes ranging from 6mm up to 85mm.",
+      "size_range": "6mm up to 85mm",
+      "imageUrl": "images/taper_shank_drills.jpg"
+    },
+    {
+      "id": "machine_vices",
+      "name": "Machine Vices",
+      "description": "Jaw width range: 75mm up to 200mm. Available types include Plain base, Swivel base, Tilting, Three way universal, and CNC modular machine vices.",
+      "jaw_width_range": "75mm up to 200mm",
+      "types": [
+        "Plain base",
+        "Swivel base",
+        "Tilting",
+        "Three way universal",
+        "CNC modular machine vices"
+      ],
+      "imageUrl": "images/machine_vices.jpg"
     }
   ]
 }

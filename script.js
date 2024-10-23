@@ -1,18 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('nav a');
-    
-    for (const link of links) {
-        link.addEventListener('click', clickHandler);
-    }
-    
-    function clickHandler(e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        const offsetTop = document.querySelector(href).offsetTop;
-        
-        scroll({
-            top: offsetTop,
-            behavior: "smooth"
-        });
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    // Load product data
+    fetch('data/products.json')
+        .then(response => response.json())
+        .then(data => {
+            const navList = document.getElementById('nav-list');
+            const main = document.querySelector('main');
+
+            // Add company name to the header
+            const companyName = document.querySelector('header h1');
+            companyName.textContent = data.company_name;
+
+            // Create nav items and product sections
+            data.products.forEach(product => {
+                // ... existing code ...
+            });
+
+            // Initialize smooth scrolling and other features
+            initFeatures();
+        })
+        .catch(error => console.error('Error loading product data:', error));
 });
