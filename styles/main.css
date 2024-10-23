@@ -71,7 +71,7 @@ nav {
     display: none;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.9);
-    min-width: 300px; /* Increased width to accommodate longer product names */
+    min-width: 300px; /* Adjust this width as needed */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     top: 100%;
@@ -86,9 +86,9 @@ nav {
     text-decoration: none;
     display: block;
     text-align: left;
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word; /* Break long words if necessary */
-    line-height: 1.4; /* Improve line spacing for readability */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
 
 .dropdown:hover .dropdown-content {
